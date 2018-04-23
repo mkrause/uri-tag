@@ -17,8 +17,10 @@ const endpoint = uri`https://example.com/api/users?name=${query}`;
 
 To bypass encoding for a specific component, use `uri.raw`:
 
+```js
 const apiBase = 'https://example.com/api/v1';
 const query = 'foo/bar';
 const endpoint = uri`${uri.raw(apiBase)}/users?name=${query}`;
 
 // endpoint === 'https://example.com/api/v1/users?name=foo%2Fbar'
+```
