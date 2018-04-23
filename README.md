@@ -24,3 +24,13 @@ const endpoint = uri`${uri.raw(apiBase)}/users?name=${query}`;
 
 // endpoint === 'https://example.com/api/v1/users?name=foo%2Fbar'
 ```
+
+
+## Related packages
+
+Packages which provide similar functionality:
+
+* [url-escape-tag](https://www.npmjs.com/package/url-escape-tag): Relies on NodeJS `querystring` module (requires a polyfill for browser usage); doesn't support a method to pass `raw` components.
+* [encody](https://www.npmjs.com/package/encody): Doesn't support a method to pass `raw` components.
+* [encodeuricomponent-tag](https://www.npmjs.com/package/encodeuricomponent-tag): Doesn't support a method to pass `raw` components.
+* [url-tagged-template](https://www.npmjs.com/package/url-tagged-template): Different functionality, this package parses URLs to their components rather than returning a URL string.
