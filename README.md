@@ -9,7 +9,10 @@ A [template literal tag](https://developer.mozilla.org/en-US/docs/Web/JavaScript
 ```js
 import uri from 'uri-tag';
 
-uri`https://example.com/api/users?name=${name}&age=${age}`;
+const name = /* user input */;
+const status = /* user input */;
+
+uri`https://example.com/api/users?name=${name}&status=${status}`;
 ```
 
 Uses [encodeURIComponent](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent) under the hood to encode any unsafe character sequences to their escaped representations:
