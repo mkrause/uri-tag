@@ -1,4 +1,5 @@
 
+// Generic builder for template literal tags
 const createTag = encode => (stringParts, ...substitutions) =>
     substitutions.reduce(
         (prev, cur, i) => prev + encode(cur) + stringParts[i + 1],
