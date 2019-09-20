@@ -12,7 +12,7 @@ import uri from 'uri-tag';
 uri`https://example.com/api/users?name=${name}&age=${age}`;
 ```
 
-Uses [encodeURIComponent](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent) under the hood to escape any unsafe character sequences to their escaped representations:
+Uses [encodeURIComponent](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent) under the hood to encode any unsafe character sequences to their escaped representations:
 
 ```js
 const query = 'query with special chars ! ? foo=bar %';
