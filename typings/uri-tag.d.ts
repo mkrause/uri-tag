@@ -9,5 +9,5 @@ declare module 'uri-tag' {
         raw : typeof raw,
     };
     
-    export default uriExport;
+    export default uri;
 }
