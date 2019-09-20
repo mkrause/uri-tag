@@ -23,7 +23,8 @@
     "files": [
         "src/",
         "lib-cjs/",
-        "lib-esm/"
+        "lib-esm/",
+        "typings/"
     ],
     "types": "typings/uri-tag.d.ts",
     "scripts": {
