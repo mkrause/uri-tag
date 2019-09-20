@@ -25,6 +25,7 @@
         "lib-cjs/",
         "lib-esm/"
     ],
+    "types": "typings/uri-tag.d.ts",
     "scripts": {
         "build:cjs": "NODE_ENV=production BABEL_ENV=cjs babel src --out-dir lib-cjs --source-maps inline",
         "build:esm": "NODE_ENV=production BABEL_ENV=esm babel src --out-dir lib-esm --source-maps inline",
