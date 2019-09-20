@@ -1,24 +1,32 @@
 
-const babelEnv = process.env.BABEL_ENV || 'cjs';
+const target = process.env.BABEL_ENV || 'esm';
 
 module.exports = {
     presets: [
-        ['env', {
+        ['@babel/env', {
             targets: {
-                node: '8.0',
-                browsers: ['last 2 versions'],
+                browsers: [
+                    'node 8.9', // Support Node v8.9 LTS (Carbon)
+                    '>0.1%',
+                    'not dead',
+                    'not OperaMini all',
+                    'not IE < 11',
+                    'last 2 Edge versions',
+                ],
             },
             
-            // Whether to enable modules (depends on the target environment)
-            modules: babelEnv === 'cjs' ? 'commonjs' : false,
+            // Have babel add in polyfills automatically based on usage
+            // https://github.com/babel/babel-preset-env/issues/203
+            useBuiltIns: 'usage',
             
-            exclude: [
-                // Do not transpile generators (saves us from needing a polyfill)
-                'transform-regenerator',
-            ],
+            // Use core-js v3
+            // See: https://babeljs.io/blog/2019/03/19/7.4.0
+            corejs: 3,
+            
+            // Whether to transpile modules
+            modules: target === 'cjs' ? 'commonjs' : false,
         }],
     ],
     plugins: [
-        'transform-object-rest-spread',
     ],
 };

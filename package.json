@@ -28,17 +28,18 @@
     "scripts": {
         "build:cjs": "NODE_ENV=production BABEL_ENV=cjs babel src --out-dir lib-cjs --source-maps inline",
         "build:esm": "NODE_ENV=production BABEL_ENV=esm babel src --out-dir lib-esm --source-maps inline",
-        "test": "NODE_ENV=development BABEL_ENV=cjs mocha --require babel-register --recursive tests",
+        "test": "NODE_ENV=development BABEL_ENV=cjs mocha --require @babel/register --recursive tests",
         "prepublishOnly": "npm run build:esm && npm run build:cjs"
     },
     "devDependencies": {
-        "babel-core": "^7.0.0-beta.3",
-        "babel-register": "^7.0.0-beta.3",
-        "babel-cli": "^7.0.0-beta.3",
-        "babel-plugin-transform-object-rest-spread": "^7.0.0-beta.3",
-        "babel-preset-env": "^7.0.0-beta.3",
-        "mocha": "^5.0.4",
-        "chai": "^4.1.2"
+        "@babel/core": "^7.6.0",
+        "@babel/register": "^7.6.0",
+        "@babel/cli": "^7.6.0",
+        "@babel/preset-env": "^7.6.0",
+        "mocha": "^6.2.0",
+        "chai": "^4.2.0"
     },
-    "dependencies": {}
+    "dependencies": {
+        "core-js": "^3.2.1"
+    }
 }
