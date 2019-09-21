@@ -34,6 +34,8 @@ const endpoint = uri`${uri.raw(apiBase)}/users?name=${query}`;
 // endpoint === 'https://example.com/api/v1/users?name=foo%2Fbar'
 ```
 
+`uri.raw` uses a unique [symbol](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol) under the hood, so that only code with access to the `uri-tag` module can pass in a raw template variable. Any user input from an external source (so, strings, JSON objects, etc.) will not be able to access this symbol.
+
 
 ## Types
 
@@ -44,7 +46,7 @@ This package includes TypeScript declarations.
 
 Packages which provide similar functionality:
 
-* [url-escape-tag](https://www.npmjs.com/package/url-escape-tag): Relies on NodeJS `querystring` module (requires a polyfill for browser usage); doesn't support a method to pass `raw` components.
-* [encody](https://www.npmjs.com/package/encody): Doesn't support a method to pass `raw` components.
-* [encodeuricomponent-tag](https://www.npmjs.com/package/encodeuricomponent-tag): Doesn't support a method to pass `raw` components.
+* [url-escape-tag](https://www.npmjs.com/package/url-escape-tag): Relies on NodeJS `querystring` module (requires a polyfill for browser usage).
+* [encody](https://www.npmjs.com/package/encody): Doesn't support `raw`.
+* [encodeuricomponent-tag](https://www.npmjs.com/package/encodeuricomponent-tag): Doesn't support `raw`.
 * [url-tagged-template](https://www.npmjs.com/package/url-tagged-template): Different functionality, this package parses URLs to their components rather than returning a URL string.
