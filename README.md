@@ -39,7 +39,7 @@ const endpoint = uri`${uri.raw(apiBase)}/users?name=${query}`;
 
 ## Types
 
-This package includes TypeScript declarations.
+This package includes definitions for TypeScript.
 
 
 ## Similar packages
