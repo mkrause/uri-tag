@@ -1,8 +1,9 @@
+///<reference lib="es2015"/>
 ///<reference path="./uri-tag.d.ts"/>
 
 // Test module to test TypeScript declaration file.
 // Usage:
-//   $ tsc --noEmit --strict --esModuleInterop --lib es2015 typings/test.ts
+//   $ tsc --noEmit --strict --esModuleInterop typings/test.ts
 // See: https://stackoverflow.com/questions/49296151/how-to-write-tests-for-typescript-typing-definition
 
 
