@@ -16,6 +16,9 @@
     "author": "mkrause",
     "license": "MIT",
     "repository": "https://github.com/mkrause/uri-tag",
+    "engines": {
+        "node": ">= 8.9"
+    },
     "es2015": "src/index.js",
     "main": "lib-cjs/index.js",
     "module": "lib-esm/index.js",
@@ -34,14 +37,12 @@
         "prepublishOnly": "npm run build:esm && npm run build:cjs"
     },
     "devDependencies": {
-        "@babel/core": "^7.6.0",
-        "@babel/register": "^7.6.0",
-        "@babel/cli": "^7.6.0",
-        "@babel/preset-env": "^7.6.0",
+        "@babel/core": "^7.6.2",
+        "@babel/register": "^7.6.2",
+        "@babel/cli": "^7.6.2",
+        "@babel/preset-env": "^7.6.2",
         "mocha": "^6.2.0",
         "chai": "^4.2.0"
     },
-    "dependencies": {
-        "core-js": "^3.2.1"
-    }
+    "dependencies": {}
 }

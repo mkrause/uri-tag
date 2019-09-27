@@ -15,13 +15,7 @@ module.exports = {
                 ],
             },
             
-            // Have babel add in polyfills automatically based on usage
-            // https://github.com/babel/babel-preset-env/issues/203
-            useBuiltIns: 'usage',
-            
-            // Use core-js v3
-            // See: https://babeljs.io/blog/2019/03/19/7.4.0
-            corejs: 3,
+            useBuiltIns: false,
             
             // Whether to transpile modules
             modules: target === 'cjs' ? 'commonjs' : false,
