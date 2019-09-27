@@ -1,7 +1,11 @@
 
-# Change Log
+# Changelog
 
-- v1.0.0
+- v1.1
+  - Remove core-js polyfills to improve file size.
+  - Add `tds` to test TypeScript declaration.
+
+- v1.0
   - First stable release.
   - Adds support for TypeScript.
 

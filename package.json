@@ -27,13 +27,13 @@
         "src/",
         "lib-cjs/",
         "lib-esm/",
-        "typings/"
+        "typings/index.d.ts"
     ],
-    "types": "./typings/uri-tag.d.ts",
+    "types": "./typings/index.d.ts",
     "scripts": {
         "build:cjs": "NODE_ENV=production BABEL_ENV=cjs babel src --out-dir lib-cjs --source-maps inline",
         "build:esm": "NODE_ENV=production BABEL_ENV=esm babel src --out-dir lib-esm --source-maps inline",
-        "test": "NODE_ENV=development BABEL_ENV=cjs mocha --require @babel/register --recursive tests",
+        "test": "NODE_ENV=development BABEL_ENV=cjs mocha --require @babel/register --recursive tests && tsd && echo '[tsd] success'",
         "prepublishOnly": "npm run build:esm && npm run build:cjs"
     },
     "devDependencies": {
@@ -41,6 +41,8 @@
         "@babel/register": "^7.6.2",
         "@babel/cli": "^7.6.2",
         "@babel/preset-env": "^7.6.2",
+        "typescript": "^3.6.3",
+        "tsd": "^0.9.0",
         "mocha": "^6.2.0",
         "chai": "^4.2.0"
     },

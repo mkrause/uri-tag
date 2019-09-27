@@ -27,7 +27,7 @@ const representAsString = value => {
 };
 
 const encode = value => {
-    if (typeof value === 'object' && value && rawSymbol in value) {
+    if (typeof value === 'object' && value !== null && rawSymbol in value) {
         return representAsString(value[rawSymbol]);
     }
     
