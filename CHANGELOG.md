@@ -3,7 +3,7 @@
 
 - v1.1
   - Remove core-js polyfills to improve file size.
-  - Add `tds` to test TypeScript declaration.
+  - Add `tsd` to test TypeScript declaration.
 
 - v1.0
   - First stable release.
