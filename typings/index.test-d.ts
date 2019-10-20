@@ -6,7 +6,7 @@
 
 import { expectType, expectError } from 'tsd';
 
-import uri, { rawSymbol, raw } from 'uri-tag';
+import uri, { rawSymbol, raw } from '.';
 
 
 expectType<string>(uri``);
