@@ -9,8 +9,8 @@ A [template literal tag](https://developer.mozilla.org/en-US/docs/Web/JavaScript
 ```js
 import uri from 'uri-tag';
 
-const name = /* user input */;
-const status = /* user input */;
+const name = getName(); // user input
+const status = getStatus(); // user input
 
 const myUri = uri`https://example.com/api/users?name=${name}&status=${status}`;
 ```
@@ -44,9 +44,7 @@ This package includes definitions for TypeScript.
 
 ## Similar packages
 
-Packages which provide similar functionality:
-
-* [url-escape-tag](https://www.npmjs.com/package/url-escape-tag): Relies on NodeJS `querystring` module (requires a polyfill for browser usage).
-* [encody](https://www.npmjs.com/package/encody): Doesn't support `raw`.
-* [encodeuricomponent-tag](https://www.npmjs.com/package/encodeuricomponent-tag): Doesn't support `raw`.
-* [url-tagged-template](https://www.npmjs.com/package/url-tagged-template): Different functionality, this package parses URLs to their components rather than returning a URL string.
+* [encody](https://www.npmjs.com/package/encody)
+* [encodeuricomponent-tag](https://www.npmjs.com/package/encodeuricomponent-tag)
+* [url-escape-tag](https://www.npmjs.com/package/url-escape-tag) (Relies on NodeJS `querystring` module, requires a polyfill for browser usage.)
+* [url-tagged-template](https://www.npmjs.com/package/url-tagged-template) (Different goals, parses URLs to their components rather than returning a URL string.)
