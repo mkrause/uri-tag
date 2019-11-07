@@ -37,11 +37,11 @@
         "prepublishOnly": "npm run build:esm && npm run build:cjs"
     },
     "devDependencies": {
-        "@babel/core": "^7.6.4",
-        "@babel/register": "^7.6.2",
-        "@babel/cli": "^7.6.4",
-        "@babel/preset-env": "^7.6.3",
-        "typescript": "^3.6.4",
+        "@babel/core": "^7.7.2",
+        "@babel/register": "^7.7.0",
+        "@babel/cli": "^7.7.0",
+        "@babel/preset-env": "^7.7.1",
+        "typescript": "^3.7.2",
         "tsd": "^0.10.0",
         "mocha": "^6.2.2",
         "chai": "^4.2.0"
