@@ -9,8 +9,8 @@ A [template literal tag](https://developer.mozilla.org/en-US/docs/Web/JavaScript
 ```js
 import uri from 'uri-tag';
 
-const name = getName(); // user input
-const status = getStatus(); // user input
+const name = getName(); // Arbitrary user input
+const status = getStatus(); // Arbitrary user input
 
 const myUri = uri`https://example.com/api/users?name=${name}&status=${status}`;
 ```
