@@ -1,7 +1,7 @@
 
 import chai from 'chai';
 
-import uri from 'uri-tag';
+import uri from '../src/uri.js';
 
 
 const { expect } = chai;
