@@ -1,7 +1,7 @@
 
 import { expect } from 'chai';
 
-import uri from '../src/index.js';
+import uri from '../src/uri.js';
 
 
 describe('uri-tag', () => {
@@ -24,7 +24,7 @@ describe('uri-tag', () => {
         expect(() => uri`http://example.com/${-Infinity}`).to.throw(TypeError);
     });
     
-    it('should support uri.raw to bypass encoding', () => {
+    it('should support `uri.raw` to bypass encoding', () => {
         expect(uri`http://example.com/${uri.raw('some/path')}/${'&'}`).to.equal('http://example.com/some/path/%26');
     });
 });

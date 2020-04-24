@@ -1,6 +1,9 @@
 {
     "name": "uri-tag",
     "version": "1.1.7",
+    "author": "mkrause",
+    "license": "MIT",
+    "repository": "https://github.com/mkrause/uri-tag",
     "description": "ES6 template literal tag to encode URI components",
     "keywords": [
         "uri",
@@ -13,26 +16,22 @@
         "es6",
         "tagged"
     ],
-    "author": "mkrause",
-    "license": "MIT",
-    "repository": "https://github.com/mkrause/uri-tag",
-    "engines": {
-        "node": ">= 8.9"
-    },
-    "main": "./lib-cjs/index.js",
-    "module": "./lib-esm/index.js",
-    "browser": "./lib-esm/index.js",
     "files": [
         "src/",
         "lib-cjs/",
         "lib-esm/",
-        "typings/index.d.ts"
+        "typings/uri.d.ts"
     ],
-    "types": "./typings/index.d.ts",
+    "types": "./typings/uri.d.ts",
+    "engines": {
+        "node": ">= 10.13"
+    },
+    "main": "./lib-cjs/uri.cjs",
+    "module": "./lib-esm/uri.mjs",
     "scripts": {
-        "build:cjs": "NODE_ENV=production BABEL_ENV=cjs babel src --out-dir lib-cjs --source-maps inline",
-        "build:esm": "NODE_ENV=production BABEL_ENV=esm babel src --out-dir lib-esm --source-maps inline",
-        "test": "NODE_ENV=development BABEL_ENV=cjs mocha --require @babel/register --recursive tests && tsd && echo '[tsd] success'",
+        "build:cjs": "rm -rf ./lib-cjs && NODE_ENV=production BABEL_ENV=cjs babel src --out-dir lib-cjs --out-file-extension=.cjs --source-maps inline",
+        "build:esm": "rm -rf ./lib-esm && NODE_ENV=production BABEL_ENV=esm babel src --out-dir lib-esm --out-file-extension=.mjs --source-maps inline",
+        "test": "NODE_ENV=test BABEL_ENV=cjs mocha --require @babel/register --recursive tests && tsd && echo '[tsd] success'",
         "prepublishOnly": "npm run build:esm && npm run build:cjs"
     },
     "devDependencies": {
