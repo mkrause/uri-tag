@@ -29,19 +29,19 @@
     "main": "./lib-cjs/uri.cjs",
     "module": "./lib-esm/uri.mjs",
     "scripts": {
-        "build:cjs": "rm -rf ./lib-cjs && NODE_ENV=production BABEL_ENV=cjs babel src --out-dir lib-cjs --out-file-extension=.cjs --source-maps inline",
-        "build:esm": "rm -rf ./lib-esm && NODE_ENV=production BABEL_ENV=esm babel src --out-dir lib-esm --out-file-extension=.mjs --source-maps inline",
+        "build:cjs": "NODE_ENV=production BABEL_ENV=cjs babel src --out-dir lib-cjs --delete-dir-on-start --out-file-extension=.cjs --source-maps=true",
+        "build:esm": "NODE_ENV=production BABEL_ENV=esm babel src --out-dir lib-esm --delete-dir-on-start --out-file-extension=.mjs --source-maps=true",
         "test": "NODE_ENV=test BABEL_ENV=cjs mocha --require @babel/register --recursive tests && tsd && echo '[tsd] success'",
         "prepublishOnly": "npm run build:esm && npm run build:cjs"
     },
     "devDependencies": {
-        "@babel/core": "^7.9.0",
+        "@babel/core": "^7.9.6",
         "@babel/register": "^7.9.0",
         "@babel/cli": "^7.8.4",
-        "@babel/preset-env": "^7.9.5",
-        "typescript": "^3.8.3",
+        "@babel/preset-env": "^7.9.6",
+        "typescript": "^3.9.2",
         "tsd": "^0.11.0",
-        "mocha": "^7.1.1",
+        "mocha": "^7.1.2",
         "chai": "^4.2.0"
     },
     "dependencies": {}
