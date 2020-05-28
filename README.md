@@ -2,7 +2,7 @@
 # uri-tag
 
 [![npm](https://img.shields.io/npm/v/uri-tag.svg?style=flat-square)](https://www.npmjs.com/package/uri-tag)
-[![Travis](https://img.shields.io/travis/uri-tag.svg?style=flat-square)](https://travis-ci.org/uri-tag)
+[![Travis](https://img.shields.io/travis/mkrause/uri-tag.svg?style=flat-square)](https://travis-ci.org/mkrause/uri-tag)
 ![MIT](https://img.shields.io/npm/l/uri-tag?style=flat-square)
 ![TypeScript](https://img.shields.io/badge/-TypeScript-blue.svg?style=flat-square)
 
