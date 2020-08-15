@@ -17,13 +17,13 @@ const status = getStatus(); // Arbitrary user input
 const myUri = uri`https://example.com/api/users?name=${name}&status=${status}`;
 ```
 
-Uses [encodeURIComponent](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent) under the hood to encode any unsafe character sequences to their escaped representations:
+Uses [RFC 3986](https://tools.ietf.org/html/rfc3986) compliant URI encoding to encode any unsafe character sequences to their escaped representations:
 
 ```js
 const query = 'query with special chars ! ? foo=bar %';
 const endpoint = uri`/api/search?q=${query}`;
 
-// endpoint === '/api/search?q=query%20with%20special%20chars%20!%20%3F%20foo%3Dbar%20%25'
+// endpoint === '/api/search?q=query%20with%20special%20chars%20%21%20%3F%20foo%3Dbar%20%25'
 ```
 
 To bypass encoding for a specific component, you can use `uri.raw`:
