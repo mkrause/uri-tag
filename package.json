@@ -25,12 +25,13 @@
         "lib-esm/",
         "typings/uri.d.ts"
     ],
-    "types": "./typings/uri.d.ts",
     "engines": {
         "node": ">= 10.13"
     },
     "main": "./lib-cjs/uri.cjs",
     "module": "./lib-esm/uri.mjs",
+    "types": "./typings/uri.d.ts",
+    "sideEffects": false,
     "scripts": {
         "build:cjs": "NODE_ENV=production BABEL_ENV=cjs babel src --out-dir lib-cjs --delete-dir-on-start --out-file-extension=.cjs --source-maps=true",
         "build:esm": "NODE_ENV=production BABEL_ENV=esm babel src --out-dir lib-esm --delete-dir-on-start --out-file-extension=.mjs --source-maps=true",
