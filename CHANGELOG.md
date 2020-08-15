@@ -1,6 +1,9 @@
 
 # Changelog
 
+- v1.3
+  - Update URI encoding to be RFC 3986 compliant
+
 - v1.2
   - Remove support for Node v8, add tests for Node v14.
 
