@@ -10,6 +10,12 @@ describe('uri-tag', () => {
         expect(uri`http://example.com`).to.equal('http://example.com');
     });
     
+    it('should fail to encode substitutions of unsupported types', () => {
+        [undefined, null, true, false, {}, [], () => {}].forEach(value => {
+            expect(() => uri`http://example.com/${value}`).to.throw(/Cannot encode URI component/);
+        });
+    });
+    
     it('should interpolate strings by URI encoding', () => {
         expect(uri`http://example.com/${'foo&bar=baz%'}`).to.equal('http://example.com/foo%26bar%3Dbaz%25');
     });
@@ -33,11 +39,19 @@ describe('uri-tag', () => {
     it('should interpolate numbers by URI encoding of their string representation', () => {
         expect(uri`http://example.com/${42}`).to.equal('http://example.com/42');
         expect(uri`http://example.com/${-10}`).to.equal('http://example.com/-10');
+        expect(uri`http://example.com/${-0.5}`).to.equal('http://example.com/-0.5');
         expect(uri`http://example.com/${+0}`).to.equal('http://example.com/0');
         expect(uri`http://example.com/${-0}`).to.equal('http://example.com/0');
         expect(() => uri`http://example.com/${NaN}`).to.throw(TypeError);
         expect(() => uri`http://example.com/${Infinity}`).to.throw(TypeError);
         expect(() => uri`http://example.com/${-Infinity}`).to.throw(TypeError);
+    });
+    
+    it('should interpolate bigint values by URI encoding of their string representation', () => {
+        expect(uri`http://example.com/${42n}`).to.equal('http://example.com/42');
+        expect(uri`http://example.com/${-10n}`).to.equal('http://example.com/-10');
+        expect(uri`http://example.com/${0n}`).to.equal('http://example.com/0');
+        expect(uri`http://example.com/${-0n}`).to.equal('http://example.com/0');
     });
     
     it('should support `uri.raw` to bypass encoding', () => {

@@ -10,7 +10,7 @@ const createTag = encode => (stringParts, ...substitutions) =>
 export const rawSymbol = Symbol('uri.raw');
 
 const representAsString = value => {
-    if (value === undefined) {
+    if (typeof value === 'undefined') {
         throw new TypeError('Cannot encode URI component, given `undefined`');
     } else if (typeof value === 'string') {
         return value;
