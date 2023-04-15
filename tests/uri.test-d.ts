@@ -4,7 +4,7 @@
 
 import { expectType, expectError } from 'tsd';
 
-import uri, { rawSymbol, raw } from '..';
+import uri, { rawSymbol, raw } from '../src/uri.js';
 
 
 expectType<string>(uri``);

@@ -3,5 +3,4 @@
 /node_modules/
 
 # Project
-/lib-cjs/
-/lib-esm/
+/dist/

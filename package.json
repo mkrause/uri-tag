@@ -21,22 +21,40 @@
     ],
     "files": [
         "src/",
-        "lib-cjs/",
-        "lib-esm/",
-        "typings/uri.d.ts"
+        "dist/"
     ],
     "engines": {
-        "node": ">= 12.13"
+        "node": ">= 14.15"
     },
-    "main": "./lib-cjs/uri.cjs",
-    "module": "./lib-esm/uri.mjs",
-    "types": "./typings/uri.d.ts",
+    "type": "module",
+    "main": "./dist/node-cjs/uri.cjs",
+    "types": "./dist/types/uri.d.cts",
     "sideEffects": false,
+    "exports": {
+        "./package.json": "./package.json",
+        ".": {
+            "import": {
+                "types": "./dist/types/uri.d.mts",
+                "default": "./dist/node-esm/uri.mjs"
+            },
+            "require": {
+                "types": "./dist/types/uri.d.cts",
+                "default": "./dist/node-cjs/uri.cjs"
+            },
+            "default": "./dist/node-esm/uri.mjs"
+        }
+    },
     "scripts": {
-        "build:cjs": "NODE_ENV=production BABEL_ENV=cjs babel src --out-dir lib-cjs --delete-dir-on-start --out-file-extension=.cjs --source-maps=true",
-        "build:esm": "NODE_ENV=production BABEL_ENV=esm babel src --out-dir lib-esm --delete-dir-on-start --out-file-extension=.mjs --source-maps=true",
-        "test": "NODE_ENV=test BABEL_ENV=cjs mocha --require @babel/register --recursive tests && tsd && echo '[tsd] success'",
-        "prepublishOnly": "npm run build:esm && npm run build:cjs"
+        "_build": "NODE_ENV=production babel src --source-maps=true --delete-dir-on-start",
+        "build:cjs": "BABEL_ENV=cjs npm run _build -- --out-dir=dist/node-cjs --out-file-extension=.cjs",
+        "build:esm": "BABEL_ENV=esm npm run _build -- --out-dir=dist/node-esm --out-file-extension=.mjs",
+        "build:types": "mkdir -p ./dist/types && cp src/uri.d.ts ./dist/types/uri.d.mts && cp src/uri.d.ts ./dist/types/uri.d.cts",
+        "build": "npm run build:esm && npm run build:cjs && npm run build:types",
+        "test:unit": "NODE_ENV=test BABEL_ENV=cjs mocha --require @babel/register --recursive tests",
+        "test:imports": "node tests/import-cjs.cjs && node tests/import-esm.mjs",
+        "test:types": "tsc && npm run build:types && tsd --typings=src/uri.d.ts --files=tests/uri.test-d.ts && echo '[tsd] success'",
+        "test": "npm run test:unit && npm run test:imports && npm run test:types",
+        "prepublishOnly": "npm run build && npm test"
     },
     "devDependencies": {
         "@babel/core": "^7.21.4",
