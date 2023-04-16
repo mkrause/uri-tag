@@ -4,7 +4,7 @@
 ![MIT](https://img.shields.io/npm/l/uri-tag?style=flat-square)
 [![npm](https://img.shields.io/npm/v/uri-tag.svg?style=flat-square)](https://www.npmjs.com/package/uri-tag)
 [![GitHub Actions](https://github.com/mkrause/uri-tag/actions/workflows/nodejs.yml/badge.svg)](https://github.com/mkrause/uri-tag/actions)
-[![Types](https://img.shields.io/npm/types/uri-tag)](https://www.typescriptlang.org)
+[![Types](https://img.shields.io/npm/types/uri-tag)](https://github.com/mkrause/uri-tag)
 
 A [template literal tag](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) to encode URI components. Allows you to to build a URI string, where any expressions will be safely encoded.
 
